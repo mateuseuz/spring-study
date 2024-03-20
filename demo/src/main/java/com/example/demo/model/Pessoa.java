@@ -11,6 +11,9 @@ public abstract class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Size(min = 3, max = 30)
+    @Column(nullable = false)
     private String nome;
 
     @NotNull

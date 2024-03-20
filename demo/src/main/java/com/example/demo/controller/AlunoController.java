@@ -2,13 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Aluno;
 import com.example.demo.service.AlunoService;
-import com.example.demo.service.GerenciamentoAcademiaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -57,6 +55,6 @@ public class AlunoController {
 
     @GetMapping("/{id}")
     public Optional<Aluno> buscarPorID(@PathVariable Long id) {
-        return alunoService.buscaAlunoPorID(id);
+        return alunoService.buscarAluno(id);
     }
 }

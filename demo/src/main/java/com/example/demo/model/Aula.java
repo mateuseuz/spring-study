@@ -1,6 +1,9 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalTime;
 
 @Entity
@@ -9,8 +12,14 @@ public abstract class Aula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
+    @Size(min = 3, max 30)
+    @Column(nullable = false)
     private String nome;
     private String horario;
+    @NotNull
+    @Size(min = 3, max = 30)
+    @Column(nullable = false)
     private String instrutorResponsavel;
     private int capacidadeMax;
 

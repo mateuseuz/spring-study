@@ -1,34 +1,38 @@
 package com.example.demo.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.List;
 
 @Entity
 @PrimaryKeyJoinColumn(name = "aluno_id")
 public class Aluno extends Pessoa {
-    private int matricula;
+    @NotNull
+    @Size(min = 13, max = 120)
+    @Column(nullable = false)
     private int idade;
+
+    @NotNull
+    @Column(nullable = false)
     private double peso;
+
+    @NotNull
+    @Size(min = 150, max = 215)
+    @Column(nullable = false)
     private int altura;
 
     public Aluno() {
     }
 
-    public Aluno(String nome, String cpf, int matricula, int idade, double peso, int altura) {
+    public Aluno(String nome, String cpf, int idade, double peso, int altura) {
         super(nome, cpf);
-        this.matricula = matricula;
         this.idade = idade;
         this.peso = peso;
         this.altura = altura;
-    }
-
-    public int getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
     }
 
     public int getIdade() {
