@@ -13,7 +13,7 @@ public abstract class Aula {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min = 3, max 30)
+    @Size(min = 3, max = 30)
     @Column(nullable = false)
     private String nome;
     private String horario;
@@ -28,6 +28,14 @@ public abstract class Aula {
         this.horario = horario;
         this.instrutorResponsavel = instrutorResponsavel;
         this.capacidadeMax = capacidadeMax;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
